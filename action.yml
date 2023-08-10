@@ -1,0 +1,3 @@
+- uses: montudor/action-zip@v1
+  with:
+    args: zip -qq -r old_steam.zip old_steam
