@@ -1,0 +1,33 @@
+name: Zip Steam Files
+
+on:
+  push:
+    paths:
+      - 'old_steam/**' # Trigger the workflow when changes are pushed to the /old_steam directory
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create and zip release
+        run: |
+          mkdir -p release
+          zip -r release/old_steam.zip old_steam
+        working-directory: ${{ github.workspace }}
+
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
+          body: |
+            Automatically created release by GitHub Actions
+          files: |
+            release/old_steam.zip
