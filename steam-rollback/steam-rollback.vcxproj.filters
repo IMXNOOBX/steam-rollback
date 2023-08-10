@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="steam-rollback.cpp" />
+    <ClCompile Include="utils\miniz.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resources">
+      <UniqueIdentifier>{66dfe2ee-4d97-411a-a45f-e8a2eec4e1aa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resources\embedded_files.h" />
+    <ClInclude Include="process\process.hpp" />
+    <ClInclude Include="utils\debug.hpp" />
+    <ClInclude Include="utils\miniz.h" />
+    <ClInclude Include="resources\old_steam.h" />
+  </ItemGroup>
+</Project>
