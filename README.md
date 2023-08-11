@@ -33,4 +33,4 @@ Steam Roollback is a simple tool that will allow you easily to go back to the ol
 
 ## 💫 Credits
 
-* Credits to [rollback-steam](https://github.com/merely04/rollback-steam) for making the tool and providing such a usefull tool
+* Credits to [rollback-steam](https://github.com/merely04/rollback-steam) for making the original tool and providing such a usefull idea
