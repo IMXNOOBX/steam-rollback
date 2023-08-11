@@ -23,7 +23,7 @@ Steam Roollback is a simple tool that will allow you easily to go back to the ol
 
 ## 📘 Developer Instructions
 
-1. To generate the zip file automatically run the python script [`generate_zip.py`]()
+1. To generate the zip file automatically run the python script [`generate_zip.py`](https://github.com/IMXNOOBX/steam-rollback/blob/main/generate_zip.py)
 	- Run in your console/terminal: **`python3 generate_zip.py`**
 
 2. After generating the zip file you can continue to build the program
