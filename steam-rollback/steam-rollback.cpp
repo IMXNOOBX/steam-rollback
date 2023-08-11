@@ -84,16 +84,10 @@ int main()
 				if (mz_zip_reader_file_stat(&zip_archive, i, &file_stat)) {
 					std::string output_filename = steam_path + std::string("/") + file_stat.m_filename;
 
-					// Check if the file already exists
-					if (util::file_exists(output_filename)) {
-						debug::log::success("replacing existing file -> " + output_filename);
-					}
+					util::display_progress_bar((i + 1) * 100 / num_files);
 
-					if (mz_zip_reader_extract_to_file(&zip_archive, i, output_filename.c_str(), 0)) {
-						debug::log::success("extracted -> " + output_filename);
-					}
-					else {
-						debug::log::error("failed to extract -> " + output_filename);
+					if (!mz_zip_reader_extract_to_file(&zip_archive, i, output_filename.c_str(), 0)) {
+						debug::log::error("Failed to extract -> \t\t" + output_filename);
 					}
 				}
 			}

@@ -47,7 +47,6 @@ namespace util {
 		return false;
 	}
 
-
 	std::string get_file_version(std::string filePath) {
 		DWORD handle;
 		DWORD versionSize = GetFileVersionInfoSizeA(filePath.c_str(), &handle);
@@ -86,6 +85,24 @@ namespace util {
 	bool file_exists(const std::string& filename) {
 		std::ifstream file(filename);
 		return file.good();
+	}
+
+	void display_progress_bar(int progress) {
+		std::cout << "\r";
+
+		int barWidth = 110;
+		int pos = barWidth * progress / 100;
+
+		std::cout << "  " << progress << "% [";
+		for (int i = 0; i < barWidth; ++i) {
+			if (i < pos) std::cout << "|";
+			else if (i == pos) std::cout << ">";
+			else std::cout << "-";
+		}
+		std::cout << "] " << std::flush;
+
+		if (progress == 100)
+			std::cout << "\n" << std::endl;
 	}
 
 	void extract_resource(const std::string& outputFilePath)
