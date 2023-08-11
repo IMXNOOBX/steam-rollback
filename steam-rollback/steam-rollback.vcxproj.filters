@@ -11,9 +11,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources\embedded_files.h" />
-    <ClInclude Include="process\process.hpp" />
+    <ClInclude Include="utils\utilities.hpp" />
     <ClInclude Include="utils\debug.hpp" />
     <ClInclude Include="utils\miniz.h" />
     <ClInclude Include="resources\old_steam.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\old_steam.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="steam-rollback.rc" />
   </ItemGroup>
 </Project>

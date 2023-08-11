@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Steam zip file
+steam-rollback/resources/old_steam.zip
+
 # User-specific files
 *.rsuser
 *.suo

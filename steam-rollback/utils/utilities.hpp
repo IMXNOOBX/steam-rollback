@@ -6,7 +6,7 @@
 
 #define size(arr) sizeof(arr) / sizeof(arr[0])
 
-namespace proc {
+namespace util {
 	const char* steamProcesses[] = { "csgo.exe", "Steam.exe", "SteamClient.exe", "SteamService.exe", "SteamWebHelper.exe", "steamwebhelper.exe" };
 
 	bool terminate_process(const char* pName) {
@@ -86,6 +86,24 @@ namespace proc {
 	bool file_exists(const std::string& filename) {
 		std::ifstream file(filename);
 		return file.good();
+	}
+
+	void extract_resource(const std::string& outputFilePath)
+	{
+		HRSRC hResource = FindResource(NULL, MAKEINTRESOURCE(IDR_OLDSTEAM1), "oldsteam");
+		if (hResource)
+		{
+			HGLOBAL hResourceData = LoadResource(NULL, hResource);
+			if (hResourceData)
+			{
+				void* pResourceData = LockResource(hResourceData);
+				DWORD dataSize = SizeofResource(NULL, hResource);
+
+				std::ofstream outputFile(outputFilePath, std::ios::binary);
+				outputFile.write(reinterpret_cast<char*>(pResourceData), dataSize);
+				outputFile.close();
+			}
+		}
 	}
 
 	bool check_open_processname(const char* pName) {
