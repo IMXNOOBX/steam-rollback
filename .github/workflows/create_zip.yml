@@ -1,0 +1,32 @@
+name: Zip Steam Files
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-and-commit-zip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create Zip
+        run: |
+          zip -r old_steam.zip old_steam
+
+      - name: Commit Zip File
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add old_steam.zip
+          git commit -m "Add zip file"
+          git push
+
+      - name: Upload Zip Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-zip-artifact
+          path: old_steam.zip
