@@ -139,11 +139,20 @@
     <ClCompile Include="utils\miniz.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="process\process.hpp" />
+    <ClInclude Include="utils\utilities.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="resources\embedded_files.h" />
     <ClInclude Include="resources\old_steam.h" />
     <ClInclude Include="utils\debug.hpp" />
     <ClInclude Include="utils\miniz.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\old_steam.zip">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="steam-rollback.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
