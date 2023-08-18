@@ -6,7 +6,9 @@ Steam Roollback is a simple tool that will allow you easily to go back to the ol
 
 > This tool is really usefull for those who want to customize the steam UI
 
-> For csgo boosting pourposes as the new UI doesnt work well under sandbox enviroments
+> For fast and easy sandboxing as the old steam ui works better under sandbox environments
+
+> To experience better performance 
 
 ![Build Status](https://cdn.discordapp.com/attachments/903283950267564094/1139565749699100713/image.png)
 
