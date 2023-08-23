@@ -13,12 +13,11 @@ int main()
 	SetConsoleTitle("Steam Rollback");
 
 	HKEY hKey;
-	WCHAR steam_path_w[256]; // Adjust the size according to your needs
+	WCHAR steam_path_w[256];
 	DWORD steam_path_s = sizeof(steam_path_w);
 	bool should_rollback = true;
 
 	// Get steam path and check version
-
 	LONG openRes = RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Valve\\Steam", 0, KEY_ALL_ACCESS, &hKey);
 	if (openRes != ERROR_SUCCESS) {
 		debug::log::error("Could not open the Steam registry key.");
@@ -27,8 +26,8 @@ int main()
 
 	debug::log::success("Opened the Steam registry key.");
 
-	LONG getName = RegQueryValueExW(hKey, L"SteamPath", 0, NULL, (LPBYTE)steam_path_w, &steam_path_s);
-	if (getName != ERROR_SUCCESS) {
+	LONG getPath = RegQueryValueExW(hKey, L"SteamPath", 0, NULL, (LPBYTE)steam_path_w, &steam_path_s);
+	if (getPath != ERROR_SUCCESS) {
 		debug::log::error("Could not read the SteamPath.");
 		return 0;
 	}
@@ -61,7 +60,6 @@ int main()
 	}
 
 	// Extract and unzip files to restore old steam
-
 	if (should_rollback) {
 		std::string absolute_path = steam_path + "/" + "old_steam.zip";
 
