@@ -7,7 +7,7 @@
 #define size(arr) sizeof(arr) / sizeof(arr[0])
 
 namespace util {
-	const char* steamProcesses[] = { "csgo.exe", "Steam.exe", "SteamClient.exe", "SteamService.exe", "SteamWebHelper.exe", "steamwebhelper.exe" };
+	const char* steamProcesses[] = { "csgo.exe", "cs2.exe", "Steam.exe", "SteamClient.exe", "SteamService.exe", "SteamWebHelper.exe", "steamwebhelper.exe" };
 
 	bool terminate_process(const char* pName) {
 		PROCESSENTRY32 processEntry;
